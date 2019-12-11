@@ -28,6 +28,16 @@ public class MyAccessibilityService extends AccessibilityService {
 
     @Override
     public void onAccessibilityEvent(AccessibilityEvent event) {
+ /*       int eventType = event.getEventType();
+        switch (eventType) {
+            case AccessibilityEvent.TYPE_TOUCH_INTERACTION_START:
+
+                //界面点击
+                break;
+            case AccessibilityEvent.TYPE_VIEW_TEXT_CHANGED:
+                //界面文字改动
+                break;
+        }*/
     }
 
     @Override
