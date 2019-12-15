@@ -1,7 +1,18 @@
 <resources>
     <string name="app_name">Lock &amp; Save</string>
-    <string name="app_info">About the app:</string>
+    <string name="app_info">Some apps keep your screen on. This app could prevent these situation.\n\n
+How to use: \n
+1. Open the app, click the TEST button, find “Lock Screen &amp; Save Power” in the pop-up “Device Manager” or “Accessibility Service”, then turn on the switch.\n
+2. Return to the application and click the TEST button again. If the app works normally, your screen is locked yet now.
+3. Unlock the screen, drag the seekbar or input a number to set the time, the click the Save buttom. The software will start timing when you unlock the screen. If the screen is not locked after the set number of minutes, the software will automatically lock the screen for you.\n
+4. Turn on the toggle button\n
+5. keep-alive. In order to save power as much as possible instead of increasing power consumption, the application does not do any special keep-alive, you need to turn off the battery optimization in the system settings, and lock the software to prevent the process from being killed. \n\n
+Other: \n
+You can clone the code from https://github.com/tumuyan/Lockoo\n
+The core function "Lock Screen" is forked from https://github.com/ChenCoin/Lockoo\n
+    </string>
     <string name="btn_next">Next</string>
     <string name="btn_test">Test</string>
     <string name="btn_save">Save</string>
+    <string name="minute">minute</string>
 </resources>
