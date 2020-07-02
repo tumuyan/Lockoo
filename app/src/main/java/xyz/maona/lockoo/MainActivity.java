@@ -14,6 +14,7 @@ import android.os.Bundle;
 import android.os.SystemClock;
 import android.provider.Settings;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.SeekBar;
@@ -28,6 +29,7 @@ public class MainActivity extends Activity {
     private boolean modeP=false;
     private PendingIntent alarmIntent;
     private Intent intent;
+    private  ScreenListener l;
 //    private AlarmManager alarmManager;
 
     protected void onCreate(Bundle state) {
@@ -111,7 +113,7 @@ public class MainActivity extends Activity {
 
 
 
-        ScreenListener l = new ScreenListener(this);
+        l = new ScreenListener(this);
 
         toggle=(ToggleButton)findViewById(R.id.toggleButton);
         toggle.setOnClickListener(new View.OnClickListener() {
@@ -166,6 +168,35 @@ public class MainActivity extends Activity {
         } else {
             alarmManager.setExact(AlarmManager.RTC_WAKEUP , System.currentTimeMillis() + time, alarmIntent);
         }
+    }
+
+
+    @Override
+    protected void onResume(){
+        super.onResume();
+        if(l!=null)
+            toggle.setChecked(l.isWorking());
+    }
+
+
+
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            return true;
+        }
+/*        else if (keyCode == KeyEvent.KEYCODE_MENU) {
+            System.out.println("您按了菜单键");
+            CreatAlertDialog("您按了菜单键");
+            Toast.makeText(this, "您按了菜单键", Toast.LENGTH_SHORT).show();
+            return true;
+        } else if (keyCode == KeyEvent.KEYCODE_HOME) {
+            // 由于Home键为系统键，此处不能捕获，需要重写onAttachedToWindow()
+            System.out.println("您按了HOME键");
+            CreatAlertDialog("您按了HOME键");
+            Toast.makeText(this, "您按了HOME键", Toast.LENGTH_SHORT).show();
+            return true;
+        }*/
+        return super.onKeyDown(keyCode, event);
     }
 
 

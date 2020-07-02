@@ -10,6 +10,7 @@ public class ScreenListener {
     private Context mContext;
     private ScreenBroadcastReceiver mScreenReceiver;
     private ScreenStateListener mScreenStateListener;
+    private boolean working=false;
 
     public ScreenListener(Context context) {
         mContext = context;
@@ -44,6 +45,7 @@ public class ScreenListener {
         mScreenStateListener = listener;
         registerListener();
         getScreenState();
+        working=true;
     }
 
     /**
@@ -68,6 +70,7 @@ public class ScreenListener {
      */
     public void unregisterListener() {
         mContext.unregisterReceiver(mScreenReceiver);
+        working=false;
     }
 
     /**
@@ -87,5 +90,9 @@ public class ScreenListener {
         public void onScreenOff();
 
         public void onUserPresent();
+    }
+
+    public boolean isWorking(){
+        return working;
     }
 }

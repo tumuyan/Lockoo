@@ -78,7 +78,9 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="ToggleButton" />
+            android:text="ToggleButton"
+            android:textOff="@string/toggle_off"
+            android:textOn="@string/toggle_on" />
 
         <Button
             android:id="@+id/Save"
